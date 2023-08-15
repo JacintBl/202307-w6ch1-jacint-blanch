@@ -6,7 +6,7 @@ const useFilmsApi = () => {
   const getFilms = async () => {
     try {
       const response = await fetch(`${apiUrl}/films`);
-      const apiFilms = (await response.json()) as { results: Film[] };
+      const apiFilms = (await response.json()) as Film[];
 
       return apiFilms;
     } catch (error) {
