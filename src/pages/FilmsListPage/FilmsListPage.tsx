@@ -10,7 +10,7 @@ const FilmsListPage = (): React.ReactElement => {
     (async () => {
       loadFilms();
     })();
-  });
+  }, [loadFilms]);
   return (
     <>
       <h2>Listado de películas</h2>

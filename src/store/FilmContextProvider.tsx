@@ -13,7 +13,7 @@ const FilmContextProvider = ({
   const loadFilms = useCallback(async () => {
     const apiFilms = await getFilms();
 
-    const { results } = apiFilms;
+    const results = apiFilms;
 
     setFilmsList([...results]);
   }, [getFilms]);
