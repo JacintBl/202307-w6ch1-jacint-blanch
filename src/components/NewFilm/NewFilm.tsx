@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../Button/Button";
 import "./NewFilm.css";
 
@@ -16,19 +16,19 @@ const NewFilm = (): React.ReactElement => {
 
   const { title, poster, director, year } = newFilm;
 
-  const submitButton = () => {
-    title !== "" && director !== "" && year !== 0 && poster !== ""
-      ? setDisabled(false)
-      : setDisabled(true);
-  };
-
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNewFilm((newFilm) => ({
       ...newFilm,
       [event.target.id]: event.target.value,
     }));
-    submitButton();
   };
+
+  useEffect(() => {
+    if (title !== "" && director !== "" && year !== 0 && poster !== "") {
+      return setDisabled(false);
+    }
+    return setDisabled(true);
+  }, [title, director, year, poster]);
 
   return (
     <form className="form-film">
