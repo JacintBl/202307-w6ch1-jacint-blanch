@@ -3,8 +3,6 @@ import Button from "../Button/Button";
 import "./NewFilm.css";
 
 const NewFilm = (): React.ReactElement => {
-  const [canSubmit] = useState(false);
-
   const initialValue = {
     title: "",
     poster: "",
@@ -14,13 +12,22 @@ const NewFilm = (): React.ReactElement => {
 
   const [newFilm, setNewFilm] = useState(initialValue);
 
+  const [disabled, setDisabled] = useState(true);
+
   const { title, poster, director, year } = newFilm;
+
+  const submitButton = () => {
+    title !== "" && director !== "" && year !== 0 && poster !== ""
+      ? setDisabled(false)
+      : setDisabled(true);
+  };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNewFilm((newFilm) => ({
       ...newFilm,
       [event.target.id]: event.target.value,
     }));
+    submitButton();
   };
 
   return (
@@ -47,7 +54,7 @@ const NewFilm = (): React.ReactElement => {
         <input type="url" onChange={handleChange} value={poster} id="poster" />
       </div>
       <div className="form-control">
-        <Button disabled={!canSubmit}>Crear película</Button>
+        <Button disabled={disabled}>Crear película</Button>
       </div>
     </form>
   );
