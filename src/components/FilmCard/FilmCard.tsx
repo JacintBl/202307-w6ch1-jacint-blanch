@@ -1,19 +1,26 @@
 import { X } from "react-feather";
+import { Film } from "../../store/types";
 import Button from "../Button/Button";
 import "./FilmCard.css";
 
-const FilmCard = (): React.ReactElement => {
+interface CardComponentProps {
+  film: Film;
+}
+
+const FilmCard = ({
+  film: { title, poster, director },
+}: CardComponentProps): React.ReactElement => {
   return (
     <article className="film">
-      <h3>Viaje a Darjeeling (2018)</h3>
+      <h3>{title}</h3>
       <img
         className="film__poster"
-        src="https://es.web.img3.acsta.net/c_310_420/medias/nmedia/18/67/28/56/20350733.jpg"
+        src={poster}
         alt="Cartel de 'Viaje a Darjeeling'"
         width="300"
         height="406"
       />
-      Dirección: Wes Anderson
+      Dirección: {director}
       <Button className="film__button">
         <X aria-label="eliminar película" />
       </Button>
