@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import FilmContextProvider from "../../store/FilmContextProvider";
+import FilmContextProvider from "../../store/films/context/FilmContextProvider";
 import NewFilmPage from "./NewFilmPage";
 
 describe("Given a NewFilmPage component", () => {

@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import App from "../../components/App/App";
-import FilmContextProvider from "../../store/FilmContextProvider";
+import FilmContextProvider from "../../store/films/context/FilmContextProvider";
 
 describe("Given a FilmsListPage component", () => {
   describe("When is rendered", () => {
