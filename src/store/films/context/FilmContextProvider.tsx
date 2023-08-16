@@ -1,7 +1,8 @@
 import { PropsWithChildren, useCallback, useMemo, useState } from "react";
 import useFilmsApi from "../../../hooks/useFilmsApi";
-import FilmContext, { FilmContextStructure } from "./FilmsContext";
-import { Film } from "./types";
+import { Film } from "../../../types";
+import FilmsContext from "./FilmsContext";
+import { FilmContextStructure } from "./types";
 
 const FilmContextProvider = ({
   children,
@@ -26,9 +27,9 @@ const FilmContextProvider = ({
     [films, loadFilms],
   );
   return (
-    <FilmContext.Provider value={filmsContextValue}>
+    <FilmsContext.Provider value={filmsContextValue}>
       {children}
-    </FilmContext.Provider>
+    </FilmsContext.Provider>
   );
 };
 

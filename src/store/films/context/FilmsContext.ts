@@ -1,7 +1,8 @@
 import { createContext } from "react";
+import { FilmContextStructure } from "./types";
 
-const FilmContext = createContext<FilmContextStructure>(
+const FilmsContext = createContext<FilmContextStructure>(
   {} as FilmContextStructure,
 );
 
-export default FilmContext;
+export default FilmsContext;
