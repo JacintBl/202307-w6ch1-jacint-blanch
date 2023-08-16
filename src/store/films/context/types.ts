@@ -1,5 +1,5 @@
 import { Film } from "../../../types";
-export interface FilmContextStructure {
+export interface FilmsContextStructure {
   films: Film[];
   loadFilms: () => Promise<void>;
 }

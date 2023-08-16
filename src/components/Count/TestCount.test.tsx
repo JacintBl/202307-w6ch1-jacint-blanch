@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { vi } from "vitest";
 import { mockedFilms } from "../../mocks/mockedFilms";
-import FilmContext from "../../store/FilmsContext";
+import FilmsContext from "../../store/films/context/FilmsContext";
 import Count from "./Count";
 
 describe("Given a Count component", () => {
@@ -12,11 +12,11 @@ describe("Given a Count component", () => {
       const loadFilms = vi.fn();
 
       render(
-        <FilmContext.Provider
+        <FilmsContext.Provider
           value={{ films: mockedFilms, loadFilms: loadFilms }}
         >
           {<Count />}
-        </FilmContext.Provider>,
+        </FilmsContext.Provider>,
       );
 
       const numberFilms = screen.getByText(textCounter);
