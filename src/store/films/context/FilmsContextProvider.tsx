@@ -4,7 +4,7 @@ import { Film } from "../../../types";
 import FilmsContext from "./FilmsContext";
 import { FilmContextStructure } from "./types";
 
-const FilmContextProvider = ({
+const FilmsContextProvider = ({
   children,
 }: PropsWithChildren): React.ReactElement => {
   const [films, setFilmsList] = useState<Film[]>([]);
@@ -33,4 +33,4 @@ const FilmContextProvider = ({
   );
 };
 
-export default FilmContextProvider;
+export default FilmsContextProvider;
