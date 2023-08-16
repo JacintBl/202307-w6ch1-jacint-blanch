@@ -1,18 +1,18 @@
 import { render, screen } from "@testing-library/react";
 import FilmsList from "../../components/FilmsList/FilmsList";
 import { mockedFilms } from "../../mocks/mockedFilms";
-import FilmContext from "../../store/FilmsContext";
+import FilmsContext from "../../store/films/context/FilmsContext";
 
 describe("Given a Film component", () => {
   describe("When it receives a film collection", () => {
     const loadFilms = async () => {};
     test("Then it should show in the second film a header 'Moonlight'", () => {
       render(
-        <FilmContext.Provider
+        <FilmsContext.Provider
           value={{ films: mockedFilms, loadFilms: loadFilms }}
         >
           {<FilmsList />}
-        </FilmContext.Provider>,
+        </FilmsContext.Provider>,
       );
 
       const filmsListSecondHeading = screen.getByRole("heading", {
@@ -24,11 +24,11 @@ describe("Given a Film component", () => {
 
     test("Then it should show in the third film a header 'Parásitos'", () => {
       render(
-        <FilmContext.Provider
+        <FilmsContext.Provider
           value={{ films: mockedFilms, loadFilms: loadFilms }}
         >
           {<FilmsList />}
-        </FilmContext.Provider>,
+        </FilmsContext.Provider>,
       );
 
       const filmsListSecondHeading = screen.getByRole("heading", {

@@ -1,9 +1,10 @@
 import { PropsWithChildren, useCallback, useMemo, useState } from "react";
-import useFilmsApi from "../hooks/useFilmsApi";
-import FilmContext, { FilmContextStructure } from "./FilmsContext";
-import { Film } from "./types";
+import useFilmsApi from "../../../hooks/useFilmsApi";
+import { Film } from "../../../types";
+import FilmsContext from "./FilmsContext";
+import { FilmsContextStructure } from "./types";
 
-const FilmContextProvider = ({
+const FilmsContextProvider = ({
   children,
 }: PropsWithChildren): React.ReactElement => {
   const [films, setFilmsList] = useState<Film[]>([]);
@@ -19,17 +20,17 @@ const FilmContextProvider = ({
   }, [getFilms]);
 
   const filmsContextValue = useMemo(
-    (): FilmContextStructure => ({
+    (): FilmsContextStructure => ({
       films,
       loadFilms,
     }),
     [films, loadFilms],
   );
   return (
-    <FilmContext.Provider value={filmsContextValue}>
+    <FilmsContext.Provider value={filmsContextValue}>
       {children}
-    </FilmContext.Provider>
+    </FilmsContext.Provider>
   );
 };
 
-export default FilmContextProvider;
+export default FilmsContextProvider;

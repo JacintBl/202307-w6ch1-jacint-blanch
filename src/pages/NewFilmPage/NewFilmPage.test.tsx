@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import FilmContextProvider from "../../store/FilmContextProvider";
+import FilmsContextProvider from "../../store/films/context/FilmsContextProvider";
 import NewFilmPage from "./NewFilmPage";
 
 describe("Given a NewFilmPage component", () => {
@@ -8,9 +8,9 @@ describe("Given a NewFilmPage component", () => {
       const heading = "Añadir nueva película";
 
       render(
-        <FilmContextProvider>
+        <FilmsContextProvider>
           <NewFilmPage />
-        </FilmContextProvider>,
+        </FilmsContextProvider>,
       );
 
       const title = screen.getByRole("heading", { name: heading });

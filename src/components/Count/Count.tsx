@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import FilmContext from "../../store/FilmsContext";
+import FilmsContext from "../../store/films/context/FilmsContext";
 
 const Count = (): React.ReactElement => {
-  const { films } = useContext(FilmContext);
+  const { films } = useContext(FilmsContext);
 
   return <span className="count">Listando {films.length} películas</span>;
 };
