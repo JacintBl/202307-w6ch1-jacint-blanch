@@ -1,7 +1,5 @@
-export interface Film {
-  id: number;
-  title: string;
-  poster: string;
-  director: string;
-  year: number;
+import { Film } from "../../../types";
+export interface FilmContextStructure {
+  films: Film[];
+  loadFilms: () => Promise<void>;
 }
